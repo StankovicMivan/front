@@ -1,0 +1,63 @@
+<div class="container">
+
+<div class="page-header">
+    <h1>Igraci</h1>
+  </div>
+
+  <form>
+    <div class="form-group">
+      <label for="ime">Ime</label> 
+      <input [(ngModel)]="igrac.ime" [ngModelOptions]="{standalone: true}" class="form-control" id="ime">
+    </div>
+    <div class="form-group">
+      <label for="prezime">Prezime</label> 
+      <input [(ngModel)]="igrac.prezime" [ngModelOptions]="{standalone: true}" class="form-control"  id="prezime" >
+    </div>
+    <div class="form-group">
+      <label for="pozicija">Pozicija</label>
+       <input [(ngModel)]="igrac.pozicija" [ngModelOptions]="{standalone: true}" class="form-control"  id="pozicija">
+    </div>
+
+    <div class="form-group">
+      <label for="takmicenja">Klubovi</label> 
+      <select class="form-control" id="klubId" [(ngModel)]="igrac.klubId" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let klub of klubovi"   value="{{klub.id}}">{{klub.naziv}}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" (click)="createIgrac()">Dodaj</button>
+
+  </form>
+<br>
+<br>
+<div class="">
+ 
+<table class="table table-bordered table-striped" >
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>Ime</th>
+    <th>Prezime</th>
+    <th>Pozicija</th>
+    <th>Klub</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let igrac of igraci">
+    <td class="hidden">{{igrac.id}}</td>
+    <td>{{igrac.ime}}</td>
+    <td>{{igrac.prezime}}</td>
+    <td>{{igrac.pozicija}}</td>
+    <td>{{igrac.klubNaziv}}</td>
+    <td>
+      <div class="">
+        <div class="btn-group">
+          <button class="btn btn-warning"(click)="editIgrac(igrac.id)" > Izmeni</button> 
+          <button class="btn btn-danger" (click)="deleteIgrac(igrac)"> Obriši</button>
+        </div>
+      </div>
+   </td>
+  </tr>
+  </tbody>
+</table>
+</div>

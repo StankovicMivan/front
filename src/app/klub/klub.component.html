@@ -1,0 +1,28 @@
+<div class="container">
+
+<div class="page-header">
+    <h1>Klubovi</h1>
+  </div>
+
+<table class="table table-bordered table-striped" >
+  <thead>
+  <tr>
+    <th class="hidden">Id</th>
+    <th>Naziv</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let klub of klubovi">
+    <td class="hidden">{{klub.id}}</td>
+    <td>{{klub.naziv}}</td>
+    <td>
+      <div class="btn-group">
+      <button class="btn btn-warning" (click)="editIgrac(igrac)"> Izmeni</button> 
+      <button class="btn btn-danger" (click)="deleteIgrac(igrac)"> Obriši</button>
+      </div>
+   </td>
+  </tr>
+  </tbody>
+</table>
+</div>

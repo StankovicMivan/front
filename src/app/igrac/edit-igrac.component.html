@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit Igrac</h2>
+<form>
+  <div class="form-group">
+    <label for="ime">Ime:</label>
+    <input [(ngModel)]="igrac.ime"  [ngModelOptions]="{standalone: true}" class="form-control" id="ime">
+  </div>
+
+  <div class="form-group">
+    <label for="prezime">Prezime:</label>
+    <input [(ngModel)]="igrac.prezime"  [ngModelOptions]="{standalone: true}" class="form-control" id="prezime">
+  </div>
+
+  <div class="form-group">
+    <label for="pozicija">Pozicija:</label>
+    <input [(ngModel)]="igrac.pozicija"  [ngModelOptions]="{standalone: true}" class="form-control" id="pozicija">
+  </div>
+  <div class="form-group">
+      <label for="klubId">Klubovi</label> 
+      <select class="form-control" id="klubId" [(ngModel)]="igrac.klubId"  [ngModelOptions]="{standalone: true}" >
+        <option *ngFor="let klub of klubovi" value="{{klub.id}}" >{{klub.naziv}}</option>
+      </select>
+  </div>
+  
+  <button class="btn btn-success" (click)="izmeni()">Izmeni</button>
+
+</form>
+</div>
